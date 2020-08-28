@@ -9,13 +9,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
-    />
-    <title>Cocktail recipe finder</title>
+    /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Cocktail recipe finder</title> 
   </head>
   <body>
     <div class="container">
       <h1 class="title">
-        Cocktail recipe finder 🥃</h1>
+        Cocktail recipe finder 🥃</h1> 
       <div class="form-group">
         <form class="form" id="submit">
           <input type="text" id="query" placeholder="Search for recipes 🍺" class="query"/>
@@ -31,9 +33,11 @@
     </div>
     <div id="error-heading" class="error-heading"></div>
     <div id="result-heading"></div>
-    <div id="drinks" class="drinks"></div> 
+    <div id="drinks" class="row s1">
+    </div> 
     <div id="single-drink" class="single-drink"></div>
-    <!-- <div id=""></div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="app.js"></script>
   </body>
 </html>

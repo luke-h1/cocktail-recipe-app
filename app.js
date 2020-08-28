@@ -23,12 +23,14 @@ async function getDrinks(e) {
           drinksEl.innerHTML = data.drinks
             .map(
               (drink) => `
-            <div class="drink"> 
-              <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
-              <div class="drink-information" data=drinkID="${drink.idDrink}" 
-              <h3>${drink.strDrink}</h2> 
-              </div> 
-              </div> 
+                  <div class="col s1 m4"> 
+                    <div class="card"> 
+                      <div class="card-image"> 
+                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
+                        <span class="card-title">${drink.strDrink}</span>  
+                      </div>
+                        </div>
+                        </div> 
             `
             )
             .join(''); // turn arr to str
