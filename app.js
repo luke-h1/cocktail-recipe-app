@@ -54,9 +54,9 @@ function addDrinksToPage(drink) {
     }
   }
   singleDrinkEl.innerHTML = `
-      <div class="col s12 m3"> 
+      <div class="col s12 m10"> 
         <div class="card"> 
-          <div class="card-image"> 
+          <div class="card-image" data-drinkID="data-drinkID"> 
             <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
               <span class="card-title span-style">${drink.strDrink}</span> 
 
@@ -77,6 +77,11 @@ function addDrinksToPage(drink) {
   `;
 }
 
+
+
+
+
+
 function getRandomDrink() {
   drinksEl.innerHTML = '';
   resultHeading.innerHTML = '';
@@ -90,7 +95,34 @@ function getRandomDrink() {
     });
 }
 
+
+function getDrinkById(drinkID) { 
+  drinksEl.innerHTML = ''; 
+  resultHeading.innerHTML = ''; 
+  errorHeading.innerHTML = ''; 
+  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}
+  `; 
+  fetch(ID_URL) 
+    .then((res) => res.json())
+    .then((data) => { 
+      const drink = data.drinks[0]; 
+      addDrinksToPage(drink);
+    })
+}
+
 // EVENT LISTENERS
 submit.addEventListener('submit', getDrinks);
 randomDrinkBtn.addEventListener('click', getRandomDrink);
-drinksEl.addEventListener('click', displayInstructions);
+drinksEl.addEventListener('click', (e) => { 
+  const drinkInfo = e.path.find((item) => { 
+    if(item.classList){
+      return item.classList.contains('card-image')
+    }else { 
+      return false; 
+    }
+  }); 
+  if(drinkInfo){
+    const drinkID = drinkInfo.getAttribute('data-drinkID'); 
+    getDrinkById(drinkID)
+  }
+});
