@@ -1,6 +1,6 @@
 const query = document.getElementById('query');
 const submit = document.getElementById('submit');
-let drinksEl = document.getElementById('drinks');
+const drinksEl = document.getElementById('drinks');
 const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
@@ -31,13 +31,13 @@ async function getDrinks(e) {
                       </div>
                         </div>
                         </div> 
-            `
+            `,
             )
             .join(''); // turn arr to str
         }
       });
   } else {
-    errorHeading.innerHTML = `<h2>Please enter a correct value 🤷‍♂️</h2>`;
+    errorHeading.innerHTML = '<h2>Please enter a correct value 🤷‍♂️</h2>';
     window.setTimeout(() => {
       errorHeading.innerHTML = '';
     }, 2000);
@@ -81,7 +81,7 @@ function getRandomDrink() {
   drinksEl.innerHTML = '';
   resultHeading.innerHTML = '';
   errorHeading.innerHTML = '';
-  const randomDrinkURL = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+  const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
