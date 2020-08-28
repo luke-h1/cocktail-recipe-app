@@ -14,23 +14,23 @@
   </head>
   <body>
     <div class="container">
-      <h1>Cocktail recipe finder 🥃</h1>
+      <h1 class="title">Cocktail recipe finder 🥃</h1>
       <div class="form-group">
         <form class="form" id="submit">
-          <input type="text" id="query" placeholder="Search for recipes 🍺" />
+          <input type="text" id="query" placeholder="Search for recipes 🍺" class="query"/>
           <button class="search-btn" type="submit" id="submit">
             <i class="fa fa-fa-beer"></i>
             Search
           </button>
         </form>
-        <button class="random-btn" id="randomDrink">
+        <button class="random-drinks-btn" id="randomDrink">
           <i class="fa fa-random"></i>
         </button>
       </div>
     </div>
     <div id="error-heading"></div>
     <div id="result-heading"></div>
-    <div id="drinks"></div>
+    <div id="drinks" class="drinks"></div>
     <!-- <div id=""></div> -->
     <script src="app.js"></script>
   </body>
