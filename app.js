@@ -93,3 +93,4 @@ function getRandomDrink() {
 // EVENT LISTENERS
 submit.addEventListener('submit', getDrinks);
 randomDrinkBtn.addEventListener('click', getRandomDrink);
+drinksEl.addEventListener('click', displayInstructions);
