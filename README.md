@@ -3,13 +3,9 @@
 
 
 ## TODO: 
-  * Use Materialize CSS to create the cards and refactor entire styles ✅
-  * fix weird multiple api call issue ✅
-  * format recipes etc. with font awesome and materialize.  ✅ 
   * add hover state to drink card to get recipe 
-  * create  random cocktail function  ✅ 
-  * fix btns ✅
-  * cleanup, refactor & lint everything ✅
+  * fix issue with random drink element not being cleared after user enters a search term  
+  * add click listener & accompanying function to get a recipe for an individual drink 
   * deploy to vercel 
   
   
