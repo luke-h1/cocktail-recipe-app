@@ -54,27 +54,33 @@ function addDrinksToPage(drink) {
     }
   }
   singleDrinkEl.innerHTML = `
-    <div class="single-drink"> 
-      <h1>${drink.idDrink}</h1> 
-      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
-      <div class="single-drink-info"> 
-      ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
-      ${drink.strAlcoholic ? `<p>${drink.strAlcoholic}</p>` : ''} 
-      </div> 
-      <div class="main"> 
-      <p>${drink.strInstructions}</p>  
-      <h2>Ingredients: </h2> 
-      <ul> 
-      ${recipe.map((item) => `<li>${item}</li>`).join('')}
-      </ul> 
-      </div> 
-      </div> 
+      <div class="col s12 m3"> 
+        <div class="card"> 
+          <div class="card-image"> 
+            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
+              <span class="card-title span-style">${drink.strDrink}</span> 
+
+            } 
+              </div>  
+              <div class="single-drink-info"> 
+                ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
+                ${drink.strAlcoholic ? `<p>${drink.strAlcoholic}</p>` : ''} 
+                  </div>
+                      <p>
+                        ${recipe.map((item) => `<li>${item}</li>`).join('')}
+                      </p>
+                        <p> ${drink.strInstructions}</p> 
+                          </div>
+                            </div>
+                              </div>
+
   `;
 }
 
 function getRandomDrink() {
   drinksEl.innerHTML = '';
   resultHeading.innerHTML = '';
+  errorHeading.innerHTML = '';
   const randomDrinkURL = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
   fetch(randomDrinkURL)
     .then((res) => res.json())
