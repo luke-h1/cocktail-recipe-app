@@ -98,3 +98,7 @@ input[type='text'] {
   margin-bottom: 1em; 
 }
 
+.error-heading { 
+  color: #fff;
+  
+}
