@@ -89,11 +89,11 @@ function addDrinksToPage(drink) {
                               </div>`;
 }
 
-function getRandomDrink() {
+async function getRandomDrink() {
   errorHandler('');
   resultHeading.innerHTML = '';
   const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-  fetch(randomDrinkURL)
+  await fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
       const drink = data.drinks[0];
@@ -101,9 +101,9 @@ function getRandomDrink() {
     });
 }
 
-function getDrinkById(drinkID) {
+async function getDrinkById(drinkID) {
   const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
-  fetch(ID_URL)
+  await fetch(ID_URL)
     .then((res) => res.json())
     .then((data) => {
       const drink = data.drinks[0];
