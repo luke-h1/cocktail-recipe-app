@@ -5,8 +5,24 @@ const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
 const singleDrinkEl = document.getElementById('single-drink');
-// search drinks and fetch from API
 
+// Error handler
+function errorHandler(message) {
+  errorHeading.innerHTML = message;
+  window.setTimeout(() => {
+    errorHeading.innerHTML = '';
+  }, 2000);
+}
+
+// Result header
+function resultsHeader(message) {
+  resultHeading.innerHTML = message;
+  window.setTimeout(() => {
+    resultHeading.innerHTML = '';
+  }, 2000);
+}
+
+// search drinks and fetch from API
 async function getDrinks(e) {
   e.preventDefault();
   const searchTerm = query.value;
@@ -16,7 +32,9 @@ async function getDrinks(e) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        resultsHeader(`<h2 class="search-results">Results for - ${searchTerm}...</h2>`);
+        resultsHeader(
+          `<h2 class="search-results">Results for - ${searchTerm}...</h2>`,
+        );
         if (data.drinks === null) {
           errorHeading.innerHTML = `No search results for - ${searchTerm}`;
         } else if (data.drinks !== null) {
@@ -34,7 +52,6 @@ async function getDrinks(e) {
             `,
             )
             .join(''); // turn arr to str
-
         }
       });
   } else {
@@ -45,8 +62,8 @@ async function getDrinks(e) {
 function addDrinksToPage(drink) {
   const recipe = [];
   for (let i = 1; i <= 20; i++) {
-    if (drink[`strIngredient${i}`]) { 
-      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);     
+    if (drink[`strIngredient${i}`]) {
+      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);
     } else {
       break;
     }
@@ -69,27 +86,10 @@ function addDrinksToPage(drink) {
                         <p> ${drink.strInstructions}</p> 
                           </div>
                             </div>
-                              </div>`; 
-} 
-
-
-function errorHandler(message){
-  errorHeading.innerHTML = message  
-    window.setTimeout(() => {
-      errorHeading.innerHTML = '';
-    }, 2000);
+                              </div>`;
 }
 
-
-function resultsHeader(message){
-  resultHeading.innerHTML = message; 
-  window.setTimeout(() => { 
-    resultHeading.innerHTML = ''; 
-  }, 2000)
-}
-
-
-function getRandomDrink() { 
+function getRandomDrink() {
   errorHandler('');
   resultHeading.innerHTML = '';
   const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
@@ -101,33 +101,31 @@ function getRandomDrink() {
     });
 }
 
-
-function getDrinkById(drinkID) { 
-  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`; 
-  fetch(ID_URL) 
+function getDrinkById(drinkID) {
+  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
+  fetch(ID_URL)
     .then((res) => res.json())
-    .then((data) => { 
-      const drink = data.drinks[0]; 
+    .then((data) => {
+      const drink = data.drinks[0];
       errorHandler('');
       addDrinksToPage(drink);
-    })
+    });
 }
 
 // EVENT LISTENERS
 submit.addEventListener('submit', getDrinks);
 randomDrinkBtn.addEventListener('click', getRandomDrink);
-drinksEl.addEventListener('click', (e) => { 
-  const drinkInfo = e.path.find((item) => { 
-    if(item.classList){ 
+drinksEl.addEventListener('click', (e) => {
+  const drinkInfo = e.path.find((item) => {
+    if (item.classList) {
       errorHandler('');
-      return item.classList.contains('card-title')
-    }else { 
-      return false; 
+      return item.classList.contains('card-title');
     }
-  }); 
-  if(drinkInfo){
+    return false;
+  });
+  if (drinkInfo) {
     errorHandler('');
-    const drinkID = drinkInfo.getAttribute('data-drinkID'); 
-    getDrinkById(drinkID)
+    const drinkID = drinkInfo.getAttribute('data-drinkID');
+    getDrinkById(drinkID);
   }
 });
