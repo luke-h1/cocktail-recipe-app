@@ -27,7 +27,7 @@ async function getDrinks(e) {
                     <div class="card"> 
                       <div class="card-image"> 
                       <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
-                        <span class="card-title">${drink.strDrink}</span>  
+                        <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
                       </div>
                         </div>
                         </div> 
@@ -51,14 +51,13 @@ function addDrinksToPage(drink) {
       break;
     }
   }
-  singleDrinkEl.innerHTML = `
+  singleDrinkEl.innerHTML = ` 
       <div class="col s12 m10"> 
         <div class="card"> 
-          <div class="card-image" data-drinkID="data-drinkID"> 
+          <div class="card-image"> 
             <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
-              <span class="card-title span-style">${drink.strDrink}</span> 
-
-            } 
+              
+              <span class="card-title span-style">${drink.strDrink}</span>
               </div>  
               <div class="single-drink-info"> 
                 ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
@@ -70,13 +69,8 @@ function addDrinksToPage(drink) {
                         <p> ${drink.strInstructions}</p> 
                           </div>
                             </div>
-                              </div>
-
-  `;
-}
-
-
-
+                              </div>`; 
+} 
 
 
 function errorHandler(message){
@@ -97,7 +91,6 @@ function resultsHeader(message){
 
 function getRandomDrink() { 
   errorHandler('');
-  drinksEl.innerHTML = '';
   resultHeading.innerHTML = '';
   const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   fetch(randomDrinkURL)
@@ -110,9 +103,6 @@ function getRandomDrink() {
 
 
 function getDrinkById(drinkID) { 
-  drinksEl.innerHTML = ''; 
-  resultHeading.innerHTML = ''; 
-
   const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`; 
   fetch(ID_URL) 
     .then((res) => res.json())
@@ -130,7 +120,7 @@ drinksEl.addEventListener('click', (e) => {
   const drinkInfo = e.path.find((item) => { 
     if(item.classList){ 
       errorHandler('');
-      return item.classList.contains('card-image')
+      return item.classList.contains('card-title')
     }else { 
       return false; 
     }
