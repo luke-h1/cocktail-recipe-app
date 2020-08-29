@@ -3,11 +3,10 @@
 
 
 ## TODO: 
-  * add hover state to drink card to get recipe 
-  * fix issue with random drink element not being cleared after user enters a search term  
+  * add hover state to drink card to get recipe - TODO 
   * add click listener & accompanying function to get a recipe for an individual drink  ✅
-  * fix error for above event listener. Get a unexpected json token - TODO later 
-  * deploy to vercel 
+  * fix error for above event listener. Get a unexpected json token ✅ 
+  * deploy to vercel ✅
    
   
   
