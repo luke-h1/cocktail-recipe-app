@@ -25,12 +25,13 @@ h1 {
 
 .container {
   margin: auto;
-  max-width: 800px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #fff;
 }
 
 .form-group {
@@ -133,4 +134,58 @@ input[type='text'] {
 .error-heading {
   color: #fff;
   text-align: center;
+}
+
+.card-image {
+  width: 100px;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-align: center;
+  position: relative;
+}
+
+.img-drink{ 
+  object-fit: cover;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 5px;
+  left: 0px;
+  top: 0px;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 1em 1em;
+  position: absolute; 
+  top: 0;
+  left: 250px; 
+  color: #000; 
+  word-wrap: wrap;
+  right:0;
+  bottom:0;
+}
+
+
+@media (max-width: 1280px) {
+}
+@media (max-width: 10240px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 640px) {
 }

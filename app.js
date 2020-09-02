@@ -33,25 +33,21 @@ async function getDrinks(e) {
       .then((data) => {
         console.log(data);
         resultsHeader(
-          `<h2 class="search-results">Results for - ${searchTerm}...</h2>`,
+          `<h2 class="search-results">Results for - ${searchTerm}...</h2>`
         );
         if (data.drinks === null) {
           errorHeading.innerHTML = `No search results for - ${searchTerm}`;
         } else if (data.drinks !== null) {
           drinksEl.innerHTML = data.drinks
             .map(
-              (drink) => `
-                  <div class="col s1 m4"> 
-                    <div class="card"> 
-                      <div class="card-image"> 
-                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
+              (drink) => ` 
+                  <div class="card"> 
+                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" />  
                         <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
-                      </div>
-                        </div>
                         </div> 
-            `,
+            `
             )
-            .join(''); // turn arr to str
+            .join('');
         }
       });
   } else {
@@ -69,12 +65,9 @@ function addDrinksToPage(drink) {
     }
   }
   singleDrinkEl.innerHTML = ` 
-      <div class="col s12 m10"> 
-        <div class="card"> 
-          <div class="card-image"> 
-            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
-              
-              <span class="card-title span-style">${drink.strDrink}</span>
+          <div class="card"> 
+            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="|img-drink" />
+              <span class="card-title">${drink.strDrink}</span>
               </div>  
               <div class="single-drink-info"> 
                 ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
@@ -85,14 +78,15 @@ function addDrinksToPage(drink) {
                       </p>
                         <p> ${drink.strInstructions}</p> 
                           </div>
-                            </div>
+                              </div>
                               </div>`;
 }
 
 async function getRandomDrink() {
   errorHandler('');
   resultHeading.innerHTML = '';
-  const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const randomDrinkURL =
+    'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   await fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
