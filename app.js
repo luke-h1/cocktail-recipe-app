@@ -43,9 +43,10 @@ async function getDrinks(e) {
               (drink) => ` 
               <div class="card"> 
                       <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" />  
-                        <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
+                        <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span> 
                         </div> 
                         </div> 
+
             `
             )
             .join('');
@@ -68,7 +69,7 @@ function addDrinksToPage(drink) {
   }
   drinksEl.innerHTML = ` 
           <div class="card"> 
-            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="|img-drink-single" />
+            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink-single" />
               <span class="card-title">${drink.strDrink}</span>
                 ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
                 ${drink.strAlcoholic ? `<p>${drink.strAlcoholic}</p>` : ''} 
