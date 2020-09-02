@@ -38,18 +38,20 @@ async function getDrinks(e) {
         if (data.drinks === null) {
           errorHeading.innerHTML = `No search results for - ${searchTerm}`;
         } else if (data.drinks !== null) {
-          drinksEl.innerHTML = data.drinks
+          singleDrinkEl.innerHTML = data.drinks
             .map(
               (drink) => ` 
-                  <div class="card"> 
+              <div class="card"> 
                       <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" />  
                         <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
+                        </div> 
                         </div> 
             `
             )
             .join('');
         }
       });
+      
   } else {
     errorHandler('<h2>Please enter a correct value 🤷‍♂️</h2>');
   }
@@ -64,22 +66,19 @@ function addDrinksToPage(drink) {
       break;
     }
   }
-  singleDrinkEl.innerHTML = ` 
+  drinksEl.innerHTML = ` 
           <div class="card"> 
-            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="|img-drink" />
+            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="|img-drink-single" />
               <span class="card-title">${drink.strDrink}</span>
-              </div>  
-              <div class="single-drink-info"> 
                 ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
                 ${drink.strAlcoholic ? `<p>${drink.strAlcoholic}</p>` : ''} 
-                  </div>
-                      <p>
+                      <p class="recipe">
                         ${recipe.map((item) => `<li>${item}</li>`).join('')}
                       </p>
                         <p> ${drink.strInstructions}</p> 
-                          </div>
-                              </div>
-                              </div>`;
+                        </div> 
+
+                              `;
 }
 
 async function getRandomDrink() {
