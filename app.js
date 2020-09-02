@@ -42,8 +42,8 @@ async function getDrinks(e) {
             .map(
               (drink) => ` 
               <div class="card"> 
-                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" />  
-                        <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span> 
+                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" 
+                        <span class="card-title" >${drink.strDrink}</span> 
                         </div> 
                         </div> 
 
@@ -52,74 +52,10 @@ async function getDrinks(e) {
             .join('');
         }
       });
-      
   } else {
     errorHandler('<h2>Please enter a correct value 🤷‍♂️</h2>');
   }
 }
 
-function addDrinksToPage(drink) {
-  const recipe = [];
-  for (let i = 1; i <= 20; i++) {
-    if (drink[`strIngredient${i}`]) {
-      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);
-    } else {
-      break;
-    }
-  }
-  drinksEl.innerHTML = ` 
-          <div class="card"> 
-            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink-single" />
-              <span class="card-title">${drink.strDrink}</span>
-                ${drink.strCategory ? `<p>${drink.strCategory}</p>` : ''} 
-                ${drink.strAlcoholic ? `<p>${drink.strAlcoholic}</p>` : ''} 
-                      <p class="recipe">
-                        ${recipe.map((item) => `<li>${item}</li>`).join('')}
-                      </p>
-                        <p> ${drink.strInstructions}</p> 
-                        </div> 
-
-                              `;
-}
-
-async function getRandomDrink() {
-  errorHandler('');
-  resultHeading.innerHTML = '';
-  const randomDrinkURL =
-    'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-  await fetch(randomDrinkURL)
-    .then((res) => res.json())
-    .then((data) => {
-      const drink = data.drinks[0];
-      addDrinksToPage(drink);
-    });
-}
-
-async function getDrinkById(drinkID) {
-  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
-  await fetch(ID_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      const drink = data.drinks[0];
-      errorHandler('');
-      addDrinksToPage(drink);
-    });
-}
-
-// EVENT LISTENERS
+// event listeners
 submit.addEventListener('submit', getDrinks);
-randomDrinkBtn.addEventListener('click', getRandomDrink);
-drinksEl.addEventListener('click', (e) => {
-  const drinkInfo = e.path.find((item) => {
-    if (item.classList) {
-      errorHandler('');
-      return item.classList.contains('card-title');
-    }
-    return false;
-  });
-  if (drinkInfo) {
-    errorHandler('');
-    const drinkID = drinkInfo.getAttribute('data-drinkID');
-    getDrinkById(drinkID);
-  }
-});
