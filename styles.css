@@ -15,22 +15,21 @@ body {
   flex-direction: column;
 }
 
-
 /* error heading */
 .error-heading {
-  text-align:center ;
+  text-align: center;
   color: red;
   margin-bottom: 1em;
 }
 
 /* title */
-.title { 
-  text-align: center; 
+.title {
+  text-align: center;
   margin-bottom: 1em;
 }
 
 /* form */
-.form-group { 
+.form-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,23 +38,21 @@ body {
   margin-bottom: 2em;
 }
 
-.form-group input { 
+.form-group input {
   border-radius: 10px;
   padding: 10px;
 }
 
-.form-group button { 
+.form-group button {
   padding: 15px;
   border-radius: 10px;
   background-color: #eee;
-
 }
 
-
 /* card styles */
-.grid-container { 
+.grid-container {
   display: grid;
-  grid-gap:20px;
+  grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -90,10 +87,9 @@ body {
   margin-bottom: 1em;
 }
 
-.single-drink ul { 
+.single-drink ul {
   margin-top: 2em;
 }
-
 
 .card-single {
   background-color: #fff;
@@ -119,9 +115,11 @@ body {
 }
 
 .single-drink {
-  margin-top: 5em;
-  width: 500px;
-  height: 500px;
+  border-radius: 15px;
+  width: 400px;
+  height: 450px;
+  display: flex;
+  margin: 0 auto;
 }
 
 .single-drink ul {
@@ -132,30 +130,23 @@ body {
   margin-top: 3em;
 }
 
-
-
-
-@media(max-width:1280px){
-  .grid-container { 
-      grid-template-columns: repeat(3, 1fr);
-
+@media (max-width: 1280px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-@media(max-width:1024px){
-  .grid-container { 
+@media (max-width: 1024px) {
+  .grid-container {
     grid-template-columns: repeat(2, 1fr);
-
+  }
 }
-}
-@media(max-width:768px){
-  .grid-container { 
+@media (max-width: 768px) {
+  .grid-container {
     grid-template-columns: repeat(1, 1fr);
-
+  }
 }
-}
-@media(max-width:640px){
-  .grid-container { 
+@media (max-width: 640px) {
+  .grid-container {
     grid-template-columns: repeat(1, 1fr);
-
-}
+  }
 }

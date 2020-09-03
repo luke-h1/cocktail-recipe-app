@@ -17,7 +17,9 @@ async function getDrinks(e) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        resultsHeader(`<h2 class="search-results">Results for - ${searchTerm}...</h2>`);
+        resultsHeader(
+          `<h2 class="search-results">Results for - ${searchTerm}...</h2>`
+        );
         if (data.drinks === null) {
           errorHeading.innerHTML = `No search results for - ${searchTerm}`;
         } else if (data.drinks !== null) {
@@ -30,10 +32,9 @@ async function getDrinks(e) {
                         <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
                         </div>
                         </div> 
-            `,
+            `
             )
             .join(''); // turn arr to str
-
         }
       });
   } else {
@@ -44,8 +45,8 @@ async function getDrinks(e) {
 function addDrinksToPage(drink) {
   const recipe = [];
   for (let i = 1; i <= 20; i++) {
-    if (drink[`strIngredient${i}`]) { 
-      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);     
+    if (drink[`strIngredient${i}`]) {
+      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);
     } else {
       break;
     }
@@ -58,7 +59,9 @@ function addDrinksToPage(drink) {
               </div>  
 
                       <ul>
-                        <li>${recipe.map((item) => `<li>${item}</li>`).join('')}</li>
+                        <li>${recipe
+                          .map((item) => `<li>${item}</li>`)
+                          .join('')}</li>
                         </ul> 
                         <hr> 
                         <ul class="list">
@@ -66,72 +69,69 @@ function addDrinksToPage(drink) {
                         </ul> 
                           </div>
                             </div>
-                              `; 
-} 
-
-
-function errorHandler(message){
-  errorHeading.innerHTML = message  
-    window.setTimeout(() => {
-      errorHeading.innerHTML = '';
-    }, 3000);
+                              `;
 }
 
-
-function resultsHeader(message){
-  resultHeading.innerHTML = message; 
-  window.setTimeout(() => { 
-    resultHeading.innerHTML = ''; 
-  }, 2000)
+function errorHandler(message, e) {
+  errorHeading.innerHTML = message;
+  window.setTimeout(() => {
+    errorHeading.innerHTML = '';
+  }, 3000);
 }
 
+function resultsHeader(message) {
+  resultHeading.innerHTML = message;
+  window.setTimeout(() => {
+    resultHeading.innerHTML = '';
+  }, 2000);
+}
 
-function getRandomDrink() { 
+function getRandomDrink() {
   errorHandler('');
   resultHeading.innerHTML = '';
-  const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const randomDrinkURL =
+    'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
+      errorHandler('');
       const drink = data.drinks[0];
       addDrinksToPage(drink);
     });
 }
 
-
-function getDrinkById(drinkID) { 
-  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`; 
-  fetch(ID_URL) 
+function getDrinkById(drinkID) {
+  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
+  fetch(ID_URL)
     .then((res) => res.json())
-    .then((data) => { 
-      const drink = data.drinks[0]; 
+    .then((data) => {
+      const drink = data.drinks[0];
       errorHandler('');
       addDrinksToPage(drink);
-    })
+    });
 }
 
-function clearState(){
+function clearState() {
   window.location.reload();
 }
 
 // EVENT LISTENERS
 submit.addEventListener('submit', getDrinks);
 randomDrinkBtn.addEventListener('click', getRandomDrink);
-drinksEl.addEventListener('click', (e) => { 
-  const drinkInfo = e.path.find((item) => { 
-    if(item.classList){ 
+drinksEl.addEventListener('click', (e) => {
+  const drinkInfo = e.path.find((item) => {
+    if (item.classList) {
       errorHandler('');
-      return item.classList.contains('card-title')
-    }else { 
-      return false; 
+      return item.classList.contains('card-title');
+    } else {
+      return false;
     }
-  }); 
-  if(drinkInfo){
+  });
+  if (drinkInfo) {
     errorHandler('');
-    const drinkID = drinkInfo.getAttribute('data-drinkID'); 
-    getDrinkById(drinkID)
+    const drinkID = drinkInfo.getAttribute('data-drinkID');
+    getDrinkById(drinkID);
   }
 });
-
 
 clearBtn.addEventListener('click', clearState);
