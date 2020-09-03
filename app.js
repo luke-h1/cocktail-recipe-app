@@ -1,28 +1,12 @@
 const query = document.getElementById('query');
-const form = document.getElementById('form');
-const drinksEl = document.getElementById('drink-recipe');
+const submit = document.getElementById('submit');
+const drinksEl = document.getElementById('drinks');
 const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
 const singleDrinkEl = document.getElementById('single-drink');
-
-// Error handler
-function errorHandler(message) {
-  errorHeading.innerHTML = message;
-  window.setTimeout(() => {
-    errorHeading.innerHTML = '';
-  }, 2000);
-}
-
-// Result header
-function resultsHeader(message) {
-  resultHeading.innerHTML = message;
-  window.setTimeout(() => {
-    resultHeading.innerHTML = '';
-  }, 2000);
-}
-
 // search drinks and fetch from API
+
 async function getDrinks(e) {
   e.preventDefault();
   const searchTerm = query.value;
@@ -32,28 +16,24 @@ async function getDrinks(e) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        resultsHeader(
-          `<h2 class="search-results">Results for - ${searchTerm}...</h2>`
-        );
+        resultsHeader(`<h2 class="search-results">Results for - ${searchTerm}...</h2>`);
         if (data.drinks === null) {
           errorHeading.innerHTML = `No search results for - ${searchTerm}`;
         } else if (data.drinks !== null) {
-          singleDrinkEl.innerHTML = data.drinks
+          drinksEl.innerHTML = data.drinks
             .map(
-              (drink) => ` 
-              <div class="card"> 
-                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" /> 
-                      <div class="drink-info-data" data-drinkID="${drink.idDrink}> 
-                        <span class="card-title">${drink.strDrink}</span> 
-                        <div class="btn-container">
-                        <button class="btn" onClick="getDrinkById()" data-drinkid> get data</button> 
+              (drink) => `
+                    <div class="card"> 
+                      <div class="card-image"> 
+                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
+                        <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
+                      </div>
+                        </div>
                         </div> 
-                        </div>                      
-                        </div> 
-
-            `
+            `,
             )
-            .join('');
+            .join(''); // turn arr to str
+
         }
       });
   } else {
@@ -61,54 +41,88 @@ async function getDrinks(e) {
   }
 }
 
-function addDrinkToDOM(drink) {
-  const ingredients = [];
-  for (let i = 0; i < 20; i++) {
-    if (drink[`strIngredients${i}`]) {
-      ingredients.push(
-        `${drink[`strIngredients${i}`]} - ${drink[`strMeasures${i}`]}`
-      );
+function addDrinksToPage(drink) {
+  const recipe = [];
+  for (let i = 1; i <= 20; i++) {
+    if (drink[`strIngredient${i}`]) { 
+      recipe.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);     
     } else {
       break;
     }
   }
-  drinksEl.innerHTML = `
-    <div class="single-drink"> 
-      <h1>${drink.strDrink}</h1> 
-        <img src="${drink.strDrink}"</h1>
-          <div class="recipe">
-            <ul>${ingredients
-              .map((ingredient) => `<li>${ingredient}</li>`)
-              .join('')}</ul> 
-          </div>  
-          </div> 
-  `;
+  singleDrinkEl.innerHTML = ` 
+        <div class="card card-single"> 
+          <div class="card-image"> 
+            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
+              <span class="card-title span-style">${drink.strDrink}</span>
+              </div>  
+                      <p class="recipe">
+                        ${recipe.map((item) => `<li>${item}</li>`).join('')}
+                      </p>
+                        <ul class="list">
+                        <li> ${drink.strInstructions}</li>
+                        </ul> 
+                          </div>
+                            </div>
+                              `; 
+} 
+
+
+function errorHandler(message){
+  errorHeading.innerHTML = message  
+    window.setTimeout(() => {
+      errorHeading.innerHTML = '';
+    }, 2000);
 }
 
-function getDrinkById(drinkID) {
-  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
-  fetch(ID_URL)
+
+function resultsHeader(message){
+  resultHeading.innerHTML = message; 
+  window.setTimeout(() => { 
+    resultHeading.innerHTML = ''; 
+  }, 2000)
+}
+
+
+function getRandomDrink() { 
+  errorHandler('');
+  resultHeading.innerHTML = '';
+  const randomDrinkURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       const drink = data.drinks[0];
-      addDrinkToDOM(drink);
+      addDrinksToPage(drink);
     });
 }
 
-// event listeners
 
-form.addEventListener('submit', getDrinks);
+function getDrinkById(drinkID) { 
+  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`; 
+  fetch(ID_URL) 
+    .then((res) => res.json())
+    .then((data) => { 
+      const drink = data.drinks[0]; 
+      errorHandler('');
+      addDrinksToPage(drink);
+    })
+}
+
+// EVENT LISTENERS
+submit.addEventListener('submit', getDrinks);
+randomDrinkBtn.addEventListener('click', getRandomDrink);
 drinksEl.addEventListener('click', (e) => { 
-  const drinkInfo = e.composedPath.find((item) => { 
-    if(item.classList){
-      return item.classList.contains('card-title'); 
+  const drinkInfo = e.path.find((item) => { 
+    if(item.classList){ 
+      errorHandler('');
+      return item.classList.contains('card-title')
     }else { 
       return false; 
     }
   }); 
   if(drinkInfo){
-    const drinkId = drinkInfo.getAttrivbute('data-drinkid'); 
-    getDrinkById(drinkId);
+    errorHandler('');
+    const drinkID = drinkInfo.getAttribute('data-drinkID'); 
+    getDrinkById(drinkID)
   }
-})
+});

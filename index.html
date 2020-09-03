@@ -4,16 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-   
-  
 
     <title>Cocktail recipe finder</title>
   </head>
   <body>
-    <div class="form-container">
+    <div class="container">
       <h1 class="title">Cocktail recipe finder 🥃</h1>
       <div class="form-group">
-        <form class="form" id="form">
+        <form class="form" id="submit">
           <input
             type="text"
             id="query"
@@ -21,23 +19,27 @@
             class="query"
           /> 
           <button
-            class="search-btn"
+            class="search-btn btn waves-effect waves-light"
             type="submit"
             id="submit"
           >
             Search
           </button>
-        
+        <button
+          class="random-drinks-btn btn waves-effect waves-light"
+          id="randomDrink"
+        >
           <i class="fa fa-random"></i>
         </button>  
       </div>
       </form>
-      <div id="drink-recipe" class="drink-recipe"></div>
     <div id="error-heading" class="error-heading"></div>
     <div id="result-heading"></div>
+    <div id="drinks" class="row s12"></div>
     <div id="single-drink" class="single-drink"></div>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="app.js"></script>
   </body>
