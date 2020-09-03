@@ -50,14 +50,16 @@ function addDrinksToPage(drink) {
     }
   }
   singleDrinkEl.innerHTML = `  
-        <div class=" card-single"> 
+        <div class="card-single"> 
           <div class="card-image"> 
             <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
-              <span class="card-title span-style">${drink.strDrink}</span>
+              <span class="card-title span-style">${drink.strDrink}</span> 
               </div>  
-                      <p class="recipe">
-                        ${recipe.map((item) => `<li>${item}</li>`).join('')}
-                      </p>
+
+                      <ul>
+                        <li>${recipe.map((item) => `<li>${item}</li>`).join('')}</li>
+                        </ul> 
+                        <hr> 
                         <ul class="list">
                         <li> ${drink.strInstructions}</li>
                         </ul> 

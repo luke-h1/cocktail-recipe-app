@@ -39,8 +39,8 @@ body {
 }
 
 .card-image {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border: 1px solid #fff;
 }
 
@@ -49,6 +49,11 @@ body {
 }
 
 .card-title {
+  margin-bottom: 1em;
+}
+
+.single-drink ul { 
+  margin-top: 2em;
 }
 
 .card-single {
@@ -61,13 +66,12 @@ body {
   margin: 0 auto;
   margin-bottom: 1em;
   margin-top: 1em;
-  text-align: center;
 }
 
 .single-drink-info {
   width: 50%;
-  text-align: center;
   color: #000;
+  display: flex;
 }
 
 .recipe {
