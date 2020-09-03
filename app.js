@@ -1,6 +1,6 @@
 const query = document.getElementById('query');
-const submit = document.getElementById('submit');
-const drinksEl = document.getElementById('drinks');
+const form = document.getElementById('form');
+const drinksEl = document.getElementById('drink-recipe');
 const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
@@ -42,9 +42,13 @@ async function getDrinks(e) {
             .map(
               (drink) => ` 
               <div class="card"> 
-                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" 
-                        <span class="card-title" >${drink.strDrink}</span> 
+                      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="img-drink" /> 
+                      <div class="drink-info-data" data-drinkID="${drink.idDrink}> 
+                        <span class="card-title">${drink.strDrink}</span> 
+                        <div class="btn-container">
+                        <button class="btn" onClick="getDrinkById()" data-drinkid> get data</button> 
                         </div> 
+                        </div>                      
                         </div> 
 
             `
@@ -57,5 +61,54 @@ async function getDrinks(e) {
   }
 }
 
+function addDrinkToDOM(drink) {
+  const ingredients = [];
+  for (let i = 0; i < 20; i++) {
+    if (drink[`strIngredients${i}`]) {
+      ingredients.push(
+        `${drink[`strIngredients${i}`]} - ${drink[`strMeasures${i}`]}`
+      );
+    } else {
+      break;
+    }
+  }
+  drinksEl.innerHTML = `
+    <div class="single-drink"> 
+      <h1>${drink.strDrink}</h1> 
+        <img src="${drink.strDrink}"</h1>
+          <div class="recipe">
+            <ul>${ingredients
+              .map((ingredient) => `<li>${ingredient}</li>`)
+              .join('')}</ul> 
+          </div>  
+          </div> 
+  `;
+}
+
+function getDrinkById(drinkID) {
+  const ID_URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`;
+  fetch(ID_URL)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const drink = data.drinks[0];
+      addDrinkToDOM(drink);
+    });
+}
+
 // event listeners
-submit.addEventListener('submit', getDrinks);
+
+form.addEventListener('submit', getDrinks);
+drinksEl.addEventListener('click', (e) => { 
+  const drinkInfo = e.composedPath.find((item) => { 
+    if(item.classList){
+      return item.classList.contains('card-title'); 
+    }else { 
+      return false; 
+    }
+  }); 
+  if(drinkInfo){
+    const drinkId = drinkInfo.getAttrivbute('data-drinkid'); 
+    getDrinkById(drinkId);
+  }
+})
