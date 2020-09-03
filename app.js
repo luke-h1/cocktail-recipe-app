@@ -107,12 +107,16 @@ function getDrinkById(drinkID) {
     .then((data) => {
       const drink = data.drinks[0];
       errorHandler('');
+      clearState();
       addDrinksToPage(drink);
+
     });
 }
 
 function clearState() {
-  window.location.reload();
+  errorHeading.style.display = 'none' // hide err handler h1. 
+  resultHeading.innerHTML = '';
+  drinksEl.innerHTML = '';
 }
 
 // EVENT LISTENERS
