@@ -87,14 +87,14 @@ function resultsHeader(message) {
 }
 
 function getRandomDrink() {
-  errorHandler('');
+  errorHeading.style.display = 'none' // hide err handler h1. 
   resultHeading.innerHTML = '';
   const randomDrinkURL =
     'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   fetch(randomDrinkURL)
     .then((res) => res.json())
     .then((data) => {
-      errorHandler('');
+      errorHeading.style.display = 'none' // hide err handler h1. 
       const drink = data.drinks[0];
       addDrinksToPage(drink);
     });
