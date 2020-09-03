@@ -27,7 +27,6 @@ async function getDrinks(e) {
                       <div class="card-image"> 
                       <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" /> 
                         <span class="card-title" data-drinkID="${drink.idDrink}">${drink.strDrink}</span>  
-                      </div>
                         </div>
                         </div> 
             `,
@@ -50,8 +49,8 @@ function addDrinksToPage(drink) {
       break;
     }
   }
-  singleDrinkEl.innerHTML = ` 
-        <div class="card card-single"> 
+  singleDrinkEl.innerHTML = `  
+        <div class=" card-single"> 
           <div class="card-image"> 
             <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
               <span class="card-title span-style">${drink.strDrink}</span>

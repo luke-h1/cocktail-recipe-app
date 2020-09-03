@@ -15,9 +15,17 @@ body {
   flex-direction: column;
 }
 
+.grid-container { 
+  display: grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+}
 
-
-.card { 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   color: #000;
   border-radius: 5px;
@@ -36,13 +44,12 @@ body {
   border: 1px solid #fff;
 }
 
-
-.card-image img { 
+.card-image img {
   width: 100%;
 }
 
-.card-title {}
-
+.card-title {
+}
 
 .card-single {
   background-color: #fff;
@@ -57,29 +64,30 @@ body {
   text-align: center;
 }
 
-.single-drink-info{
-  width: 50%; 
+.single-drink-info {
+  width: 50%;
   text-align: center;
   color: #000;
 }
 
-.recipe { 
+.recipe {
   color: #000;
   text-align: center;
 }
 
-.single-drink { 
-  margin-top: 5em; 
+.single-drink {
+  margin-top: 5em;
   width: 500px;
   height: 500px;
-
-
 }
 
-.single-drink ul { 
+.single-drink ul {
   list-style-type: none;
 }
 
-.list { 
+.list {
   margin-top: 3em;
 }
+
+
+
