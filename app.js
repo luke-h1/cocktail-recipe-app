@@ -5,6 +5,7 @@ const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
 const singleDrinkEl = document.getElementById('single-drink');
+const clearBtn = document.getElementById('clear-state');
 // search drinks and fetch from API
 
 async function getDrinks(e) {
@@ -73,7 +74,7 @@ function errorHandler(message){
   errorHeading.innerHTML = message  
     window.setTimeout(() => {
       errorHeading.innerHTML = '';
-    }, 2000);
+    }, 3000);
 }
 
 
@@ -109,6 +110,10 @@ function getDrinkById(drinkID) {
     })
 }
 
+function clearState(){
+  window.location.reload();
+}
+
 // EVENT LISTENERS
 submit.addEventListener('submit', getDrinks);
 randomDrinkBtn.addEventListener('click', getRandomDrink);
@@ -127,3 +132,6 @@ drinksEl.addEventListener('click', (e) => {
     getDrinkById(drinkID)
   }
 });
+
+
+clearBtn.addEventListener('click', clearState);
