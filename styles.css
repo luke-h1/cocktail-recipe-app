@@ -116,10 +116,11 @@ body {
 
 .single-drink {
   border-radius: 15px;
-  width: 400px;
-  height: 450px;
+  width: 600px;
+  height: 550px;
   display: flex;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .single-drink ul {
