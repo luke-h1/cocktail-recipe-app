@@ -28,6 +28,12 @@ body {
   margin-bottom: 1em;
 }
 
+.title a { 
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* form */
 .form-group {
   display: flex;
@@ -84,7 +90,10 @@ body {
 }
 
 .card-title {
+  color: red;
   margin-bottom: 1em;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .single-drink ul {
