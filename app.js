@@ -5,7 +5,6 @@ const resultHeading = document.getElementById('result-heading');
 const errorHeading = document.getElementById('error-heading');
 const randomDrinkBtn = document.getElementById('randomDrink');
 const singleDrinkEl = document.getElementById('single-drink');
-const clearBtn = document.getElementById('clear-state');
 // search drinks and fetch from API
 
 async function getDrinks(e) {
@@ -87,7 +86,6 @@ function resultsHeader(message) {
 }
 
 function getRandomDrink() {
-  clearState();
   errorHeading.style.display = 'none'; // hide err handler h1.
   resultHeading.innerHTML = '';
   const randomDrinkURL =
@@ -107,9 +105,9 @@ function getDrinkById(drinkID) {
   fetch(ID_URL)
     .then((res) => res.json())
     .then((data) => {
+      clearState();
       const drink = data.drinks[0];
       errorHandler('');
-      clearState();
       addDrinksToPage(drink);
     });
 }
