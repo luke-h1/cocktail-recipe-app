@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "{{WIP}} App that display cocktail recipes and gives you instructions on how to make them",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luke-h1/cocktail-recipe-app.git"
