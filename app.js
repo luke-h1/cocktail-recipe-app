@@ -139,4 +139,3 @@ drinksEl.addEventListener('click', (e) => {
   }
 });
 
-clearBtn.addEventListener('click', clearState);
