@@ -88,6 +88,7 @@ function resultsHeader(message) {
 function getRandomDrink() {
   errorHeading.style.display = 'none'; // hide err handler h1.
   resultHeading.innerHTML = '';
+  drinksEl.innerHTML = '';
   const randomDrinkURL =
     'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   fetch(randomDrinkURL)
