@@ -27,6 +27,7 @@
   width: 100%;
   margin: 10px 0;
   padding: 10px;
+  font-size: 22px;
 }
 
 .search__query:hover {
@@ -47,4 +48,14 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s ease;
+}
+
+.search__btn:hover { 
+  cursor: pointer;
+}
+
+.search__btn:active {
+   transform: scale(1.08);
+   outline: 0;
+
 }
