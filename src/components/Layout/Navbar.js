@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './Navbar.css';
 const Header = ({ title, icon }) => {
   return (
@@ -11,12 +10,6 @@ const Header = ({ title, icon }) => {
           <span role="img" aria-label="drink">
             {icon}
           </span>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
         </h1>
       </nav>
     </Fragment>
