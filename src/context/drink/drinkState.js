@@ -16,7 +16,7 @@ const DrinkState = (props) => {
   const initialState = {
     drinks: '',
     singleDrink: '',
-    loaading: false,
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(drinkReducer, initialState);
