@@ -10,15 +10,16 @@ const Search = ({ title }) => {
   const [singleDrink, setSingleDrink] = useState('');
   const onChange = (e) => setQuery(e.target.value);
   const handleClick = async () => {};
-  const onSubmit = (e) => { 
+  const onSubmit = (e) => {
     e.preventDefault();
-    if(query === ''){
-      // ALERT CONTEXT GOES HERE 
-      return; 
-    }else { 
+    if (query === '') {
+      // ALERT CONTEXT GOES HERE
+      return;
+    } else {
       drinkContext.searchDrinks(query);
+      setQuery('');
     }
-  }
+  };
   return (
     <Fragment>
       <div className="search-wrapper">

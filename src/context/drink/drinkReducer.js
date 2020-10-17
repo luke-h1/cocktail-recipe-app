@@ -21,7 +21,7 @@ export default (state, action) => {
     case SEARCH_DRINKS:
       return {
         ...state,
-        singleDrink: action.payload,
+        drinks: action.payload,
         loading: false,
       };
 
