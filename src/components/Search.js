@@ -1,8 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Search.css';
 
+
 const Search = ({ title }) => {
+  const [query, setQuery] = useState('');
+  const [drinks, setDrinks] = useState('');
+
+
+  const handleClick = async () => { 
+
+  }
+
   return (
     <Fragment>
       <div className="search-wrapper">
@@ -12,9 +21,10 @@ const Search = ({ title }) => {
             type="text"
             placeholder="Search..."
             className="search__query"
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit" className="search__btn">
-        Search
+          <button type="submit" className="search__btn" onClick={handleClick}>
+            Search
           </button>
         </div>
       </div>

@@ -50,12 +50,11 @@
   transition: all 0.2s ease;
 }
 
-.search__btn:hover { 
+.search__btn:hover {
   cursor: pointer;
 }
 
 .search__btn:active {
-   transform: scale(1.08);
-   outline: 0;
-
+  transform: scale(1.08);
+  outline: 0;
 }

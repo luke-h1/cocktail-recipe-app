@@ -12,7 +12,7 @@ const Home = ({ title, intro }) => {
               🍹
             </span>
           </h1>
-          <p class="container__intro">{intro}</p>
+          <p className="container__intro">{intro}</p>
         </div>
       </div>
     </Fragment>
