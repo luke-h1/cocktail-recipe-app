@@ -1,0 +1,30 @@
+.container {
+  min-height: 25vh;
+  max-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__title { 
+  margin-bottom: 2rem;
+}
+
+.container__intro-container { 
+  max-width: 550px;
+  min-width: 550px;
+  background-color: #dfe4ea;
+  padding: 6rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+
+}
+
+.container__intro { 
+  font-size: 22px;
+  
+}
