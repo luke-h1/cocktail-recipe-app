@@ -6,13 +6,12 @@ const Home = ({ title, intro }) => {
     <Fragment>
       <div className="container">
         <div className="container__intro-container">
-          <h1 className='container__title'>
+          <h1 className="container__title">
             {title}{' '}
             <span role="img" aria-label="drink">
               🍹
             </span>
           </h1>
-
           <p class="container__intro">{intro}</p>
         </div>
       </div>

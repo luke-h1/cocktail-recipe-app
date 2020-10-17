@@ -7,11 +7,11 @@
   align-items: center;
 }
 
-.container__title { 
+.container__title {
   margin-bottom: 2rem;
 }
 
-.container__intro-container { 
+.container__intro-container {
   max-width: 550px;
   min-width: 550px;
   background-color: #dfe4ea;
@@ -21,10 +21,8 @@
   width: 600px;
   max-width: 100%;
   text-align: center;
-
 }
 
-.container__intro { 
+.container__intro {
   font-size: 22px;
-  
 }
