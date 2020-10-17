@@ -17,4 +17,16 @@ const AlertState = (props) => {
       dispatch({ type: REMOVE_ALERT });
     }, 1500);
   };
+
+  return (
+    <AlertContext.Provider
+      value={{
+        alert: state,
+        setAlert,
+      }}
+    >
+      {props.children}
+    </AlertContext.Provider>
+  );
 };
+export default AlertState;

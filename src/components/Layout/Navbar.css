@@ -4,3 +4,7 @@
   background-color: #70a1ff;
   margin-bottom: 2em;
 } 
+
+ul {
+  list-style: none;
+}

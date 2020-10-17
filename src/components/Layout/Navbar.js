@@ -1,17 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './Header.css';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 const Header = ({ title, icon }) => {
   return (
     <Fragment>
-      <header className="header">
+      <nav className="header">
         <h1>
           {title}
           <span role="img" aria-label="drink">
             {icon}
           </span>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
         </h1>
-      </header>
+      </nav>
     </Fragment>
   );
 };
