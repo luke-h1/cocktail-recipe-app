@@ -2,9 +2,11 @@ import React, { Fragment, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import './Search.css';
 import DrinkContext from '../context/drink/drinkContext';
-
+import AlertContext from '../context/alert/alertContext';
 const Search = ({ title }) => {
   const drinkContext = useContext(DrinkContext);
+  const alertContext = useContext(AlertContext);
+
   const [query, setQuery] = useState('');
   const [drinks, setDrinks] = useState('');
   const [singleDrink, setSingleDrink] = useState('');
@@ -14,6 +16,7 @@ const Search = ({ title }) => {
     e.preventDefault();
     if (query === '') {
       // ALERT CONTEXT GOES HERE
+      alertContext.setAlert('Enter A Correct Query', 'danger');
       return;
     } else {
       drinkContext.searchDrinks(query);
