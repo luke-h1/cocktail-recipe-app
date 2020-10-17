@@ -6,7 +6,7 @@ import './Search.css';
 const Search = ({ title }) => {
   const [query, setQuery] = useState('');
   const [drinks, setDrinks] = useState('');
-
+  const [singleDrink, setSingleDrink] = useState('');
 
   const handleClick = async () => { 
 
