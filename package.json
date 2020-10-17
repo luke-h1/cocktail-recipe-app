@@ -1,22 +1,44 @@
 {
   "name": "cocktail-recipe-app",
-  "version": "1.0.0",
-  "description": "{{WIP}} App that display cocktail recipes and gives you instructions on how to make them",
-  "main": "app.js",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luke-h1/cocktail-recipe-app.git"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3"
   },
-  "author": "luke-h1",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/luke-h1/cocktail-recipe-app/issues"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier \"src/**/*.{js,html}\" --write",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "clean": "rm -rf node_modules && npm i"
   },
-  "homepage": "https://github.com/luke-h1/cocktail-recipe-app#readme",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "prettier": "^2.1.2"
   }
 }
