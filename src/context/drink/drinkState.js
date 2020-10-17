@@ -44,7 +44,7 @@ const DrinkState = (props) => {
         drinks: state.drinks,
         singleDrink: state.singleDrink,
         loading: state.loading,
-        // searchDrinks,
+        searchDrinks,
         // searchSingleDrink,
       }}
     >

@@ -6,18 +6,21 @@ import AlertContext from '../context/alert/alertContext';
 const Search = ({ title }) => {
   const drinkContext = useContext(DrinkContext);
   const alertContext = useContext(AlertContext);
-
   const [query, setQuery] = useState('');
   const [drinks, setDrinks] = useState('');
   const [singleDrink, setSingleDrink] = useState('');
   const onChange = (e) => setQuery(e.target.value);
-  const handleClick = async () => {};
+
+
+  
+  const handleClick = async () => {
+    
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     if (query === '') {
       // ALERT CONTEXT GOES HERE
       alertContext.setAlert('Enter A Correct Query', 'danger');
-      return;
     } else {
       drinkContext.searchDrinks(query);
       setQuery('');
@@ -34,7 +37,7 @@ const Search = ({ title }) => {
             className="search__query"
             onChange={onChange}
           />
-          <button type="submit" className="search__btn" onClick={handleClick}>
+          <button type="submit" className="search__btn">
             Search
           </button>
         </form>
