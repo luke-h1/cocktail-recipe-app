@@ -11,15 +11,9 @@ const Search = ({ title }) => {
   const [singleDrink, setSingleDrink] = useState('');
   const onChange = (e) => setQuery(e.target.value);
 
-
-  
-  const handleClick = async () => {
-    
-  };
   const onSubmit = (e) => {
     e.preventDefault();
     if (query === '') {
-      // ALERT CONTEXT GOES HERE
       alertContext.setAlert('Enter A Correct Query', 'danger');
     } else {
       drinkContext.searchDrinks(query);

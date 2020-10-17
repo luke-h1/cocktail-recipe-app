@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Image1 from '../images/Image1.jpeg';
+import Image1 from './Images/Image1.jpeg'; 
 
 const DrinkItem = ({ drink }) => {
   const { strDrink } = DrinkItem;

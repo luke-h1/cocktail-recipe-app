@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
+import Drinks from '../Drinks';
 const Home = ({ title, intro }) => {
   return (
     <Fragment>
@@ -15,6 +16,7 @@ const Home = ({ title, intro }) => {
           <p className="container__intro">{intro}</p>
         </div>
       </div>
+      <Drinks />
     </Fragment>
   );
 };
