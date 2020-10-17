@@ -1,32 +1,39 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import './Search.css';
-
+import DrinkContext from '../context/drink/drinkContext';
 
 const Search = ({ title }) => {
+  const drinkContext = useContext(DrinkContext);
   const [query, setQuery] = useState('');
   const [drinks, setDrinks] = useState('');
   const [singleDrink, setSingleDrink] = useState('');
-
-  const handleClick = async () => { 
-
+  const onChange = (e) => setQuery(e.target.value);
+  const handleClick = async () => {};
+  const onSubmit = (e) => { 
+    e.preventDefault();
+    if(query === ''){
+      // ALERT CONTEXT GOES HERE 
+      return; 
+    }else { 
+      drinkContext.searchDrinks(query);
+    }
   }
-
   return (
     <Fragment>
       <div className="search-wrapper">
         <h2 className="search__title">{title}</h2>
-        <div className="search__main">
+        <form className="search__main" onSubmit={onSubmit}>
           <input
             type="text"
             placeholder="Search..."
             className="search__query"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={onChange}
           />
           <button type="submit" className="search__btn" onClick={handleClick}>
             Search
           </button>
-        </div>
+        </form>
       </div>
     </Fragment>
   );

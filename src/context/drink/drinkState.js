@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import DrinkContext from './drinkContext';
 import DrinkReducer from './drinkReducer';
-
+import axios from 'axios';
 import {
   SEARCH_DRINKS,
   GET_DRINK,
@@ -22,6 +22,15 @@ const DrinkState = (props) => {
   const [state, dispatch] = useReducer(drinkReducer, initialState);
 
   // SEARCH DRINKS
+  const searchDrinks = async(searchTerm) => { 
+    // setLoading(); 
+    const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`); 
+    dispatch({ 
+      type: SEARCH_DRINKS,
+      payload: res.data
+     }); 
+     console.log(res.data);
+  }
 
   // GET SINGLE DRINK
 
