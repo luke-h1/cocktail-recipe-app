@@ -12,6 +12,7 @@ const Drinks = () => {
   } else {
     return (
       <div className="grid-container">
+        {/* No fucking idea what the below is getting 🤷‍♂️ */}
         {drinks.map((drink) => (
           <DrinkItem key={drink.idDrink} drink={drink}></DrinkItem>
         ))}
