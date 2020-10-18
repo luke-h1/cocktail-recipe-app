@@ -26,11 +26,11 @@ const DrinkState = (props) => {
     const res = await axios.get(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
     );
+
     dispatch({
       type: SEARCH_DRINKS,
-      payload: res.data,
+      payload: res.data.drinks,
     });
-    console.log(res.data);
   };
 
   // GET SINGLE DRINK

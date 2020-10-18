@@ -20,7 +20,7 @@ export default (state, action) => {
 
     case SEARCH_DRINKS:
       return {
-        ...state,
+        ...state, 
         drinks: action.payload,
         loading: false,
       };
