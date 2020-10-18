@@ -12,13 +12,8 @@ const Search = ({ title }) => {
     const res = await fetch(API_URL);
     const data = await res.json();
     const results = data.drinks.map((drink) => (
-      <div className="drink-card">
-        <div className="img-container">
-          <img src={drink.strDrinkThumb} alt="" loading="lazy" />
-        </div>
-        <h3 className="drink__card-title">{drink.strDrink}</h3>
-        <p className="drink-description">{drink.strInstructions}</p>
-      </div>
+    <DrinkItem key={drink.strDrink} drink={drink}></DrinkItem>
+ 
     ));
     setDrinks(results);
   };
