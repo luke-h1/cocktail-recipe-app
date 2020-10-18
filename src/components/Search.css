@@ -125,6 +125,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
+  .search__main { 
+    max-width: 500px;
+  }
 }
 
 @media (max-width: 850px) {
