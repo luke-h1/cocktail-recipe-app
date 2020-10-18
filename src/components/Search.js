@@ -1,19 +1,16 @@
 import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
 import './Search.css';
 import DrinkItem from './DrinkItem';
 const Search = ({ title }) => {
   const [text, setText] = useState('');
   const [drinks, setDrinks] = useState('');
-  const [alert, setAlert] = useState('');
 
   const searchDrinks = async (text) => {
     const API_URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text}`;
     const res = await fetch(API_URL);
     const data = await res.json();
     const results = data.drinks.map((drink) => (
-    <DrinkItem key={drink.strDrink} drink={drink}></DrinkItem>
- 
+      <DrinkItem key={drink.strDrink} drink={drink}></DrinkItem>
     ));
     setDrinks(results);
   };
@@ -23,7 +20,7 @@ const Search = ({ title }) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (text === '') {
-      setAlert('Enter A Correct Query', 'danger');
+      return;
     } else {
       searchDrinks(text);
     }
@@ -45,7 +42,10 @@ const Search = ({ title }) => {
           </button>
         </div>
       </div>
-      <div className="grid-container">{drinks}</div>
+      <div className="grid-container">
+        {drinks}
+        {alert}
+      </div>
     </Fragment>
   );
 };
