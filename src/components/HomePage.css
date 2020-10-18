@@ -26,3 +26,8 @@
 .container__intro {
   font-size: 22px;
 }
+
+.container__intro-container { 
+  margin-top: 4rem;
+}
+
