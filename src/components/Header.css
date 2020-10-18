@@ -3,8 +3,20 @@
   background-color: #70a1ff;
   margin-bottom: 2em;
   padding: 1rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
 } 
 
 ul {
   list-style: none;
+}
+
+
+@media(max-width:500px){
+  .header { 
+    min-width: 100%;
+    max-width: 100%;
+  }
 }

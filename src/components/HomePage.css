@@ -20,13 +20,24 @@
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   max-width: 100%;
   text-align: center;
+
 }
 
 .container__intro {
   font-size: 22px;
 }
 
-.container__intro-container { 
-  margin-top: 4rem;
-}
 
+
+
+@media(max-width: 500px){
+  .container__intro-container { 
+    margin-top: 15rem; 
+    max-width: 350px;
+    min-width: 350px;
+    min-height: 250px;
+    max-height: 250px;
+    padding: 1rem;
+    margin: 15.5rem 0 2.5rem 10rem;
+  }
+}
