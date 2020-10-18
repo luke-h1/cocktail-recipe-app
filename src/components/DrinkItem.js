@@ -1,20 +1,13 @@
 import React, { Fragment } from 'react';
-import Image1 from './Images/Image1.jpeg';
+import './drinkItem.css';
 
-const DrinkItem = ({ drinks }) => {
-
+const drinkItem = (props) => {
   return (
-    <Fragment>
-      
-      <div className="drink-card">
-        <div className="drink-card__img-container">
-          <img src={Image1} alt="" loading="lazy" />
-        </div>
-        <h3 className="drink__card-title">hello</h3>
-        <p>Drink</p>
-      </div>
-    </Fragment>
+    <div className="container">
+      <h1>{props.strDrink}</h1>
+      <p className="quote"></p>
+      <p className="author"></p>
+    </div>
   );
 };
-
-export default DrinkItem;
+export default drinkItem;

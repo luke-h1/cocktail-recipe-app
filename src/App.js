@@ -1,22 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
-import Navbar from './components/Layout/Navbar';
-import Alert from './components/Layout/Alert';
-import DrinkState from './context/drink/drinkState';
-import AlertState from './context/alert/AlertState';
-import Home from './components/pages/Home';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
 import Search from './components/Search';
 function App() {
   return (
-    <DrinkState>
-      <AlertState>
-        <div className="App">
-          <Navbar />
-          <Home />
-          <Search />
-        </div>
-      </AlertState>
-    </DrinkState>
+    <Fragment>
+      <Header />
+      <HomePage />
+      <Search />
+    </Fragment>
   );
 }
 

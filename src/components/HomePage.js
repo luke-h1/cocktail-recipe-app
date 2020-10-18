@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './Home.css';
-import Drinks from '../Drinks';
-const Home = ({ title, intro }) => {
+import './HomePage.css';
+const HomePage = ({ title, intro }) => {
   return (
     <Fragment>
       <div className="container">
@@ -16,20 +15,18 @@ const Home = ({ title, intro }) => {
           <p className="container__intro">{intro}</p>
         </div>
       </div>
-      <Drinks />
     </Fragment>
   );
 };
-
-Home.defaultProps = {
+HomePage.defaultProps = {
   title: 'Search For Drinks',
   intro:
     'Enter your Favorite drink or click the random button to get some ideas on what to drink tonight !',
 };
 
-Home.propTypes = {
+HomePage.propTypes = {
   title: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,
 };
 
-export default Home;
+export default HomePage;
