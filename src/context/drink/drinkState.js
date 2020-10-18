@@ -28,8 +28,7 @@ const DrinkState = (props) => {
     );
     dispatch({
       type: SEARCH_DRINKS,
-      payload: res.data.drinks,
-      // I THINK THE ABOVE IS RIGHT IDK THO 🤷‍♂️
+      payload: res.data,
     });
     console.log(res.data);
   };

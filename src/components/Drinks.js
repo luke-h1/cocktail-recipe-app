@@ -4,18 +4,19 @@ import Loading from './Layout/Loading';
 import DrinkContext from '../context/drink/drinkContext';
 import './Drinks.css';
 
-const Drinks = () => {
+const Drinks = ({ drinks }) => {
   const drinkContext = useContext(DrinkContext);
-  const { loading, drinks } = drinkContext;
+  const { loading, searchDrinks } = drinkContext;
   if (loading) {
     return <Loading />;
   } else {
     return (
       <div className="grid-container">
-        {/* No fucking idea what the below is getting 🤷‍♂️ */}
-        {drinks.map((drink) => (
-          <DrinkItem key={drink.idDrink} drink={drink}></DrinkItem>
-        ))}
+        {console.log(drinks)} {/* returns undefined  */}
+        {console.log(searchDrinks)} {/* returns the function / method  */}
+
+
+        {/* TODO: MAP THRU DRINKS HERE FROM DRINK STATE */}
       </div>
     );
   }
