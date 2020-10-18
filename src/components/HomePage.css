@@ -11,29 +11,14 @@
   margin-bottom: 2rem;
 }
 
-.container__intro-container {
-  max-width: 450px;
-  min-width: 450px;
-  background-color: #dfe4ea;
-  padding: 6rem;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-  max-width: 100%;
-  text-align: center;
-}
+
 
 .container__intro {
   font-size: 22px;
 }
 
-@media (max-width: 760px) {
-  .container__intro-container {
-    display: none;
-  }
-}
+
 
 @media (max-width: 500px) {
-  .container__intro-container {
-    display: none;
-  }
+
 }

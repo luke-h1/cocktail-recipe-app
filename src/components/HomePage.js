@@ -4,9 +4,7 @@ import './HomePage.css';
 const HomePage = ({ title, intro }) => {
   return (
     <Fragment>
-      <div className="container">
-        
-      </div>
+      <div className="container"></div>
     </Fragment>
   );
 };
