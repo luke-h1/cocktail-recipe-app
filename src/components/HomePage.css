@@ -26,14 +26,14 @@
   font-size: 22px;
 }
 
+@media (max-width: 760px) {
+  .container__intro-container {
+    display: none;
+  }
+}
+
 @media (max-width: 500px) {
   .container__intro-container {
-    margin-top: 15rem;
-    max-width: 350px;
-    min-width: 350px;
-    min-height: 250px;
-    max-height: 250px;
-    padding: 1rem;
-    margin: 15.5rem 0 2.5rem 10rem;
+    display: none;
   }
 }
