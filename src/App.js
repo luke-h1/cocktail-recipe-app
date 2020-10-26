@@ -11,6 +11,13 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
+          {/* <Route exact path='/drink/:drink.strDrink' component={MainDrinkPage} /> */}
+{/* 
+
+// Add routing to single drink page based on drink id 
+// match.params.strDrink ???? 
+
+*/}
         </Switch>
       </BrowserRouter>
     </Fragment>
