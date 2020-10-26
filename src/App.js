@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import './App.css';
-import Header from './components/Header';
-import HomePage from './components/HomePage';
-import Search from './components/Search';
+import './App.scss';
+import Header from './components/Header/Header';
+import HomePage from './components/HomePage/HomePage';
+import Search from './components/Search/Search';
 function App() {
   return (
     <Fragment>

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './HomePage.css';
+import './HomePage.scss';
 const HomePage = ({ title, intro }) => {
   return (
     <Fragment>

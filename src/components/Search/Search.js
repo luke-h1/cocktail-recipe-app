@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import './Search.css';
-import DrinkItem from './DrinkItem';
+import './Search.scss';
+import DrinkItem from '../DrinkItem/DrinkItem';
 const Search = ({ title }) => {
   const [text, setText] = useState('');
   const [drinks, setDrinks] = useState('');

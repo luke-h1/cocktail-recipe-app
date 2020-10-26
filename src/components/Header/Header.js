@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './Header.css';
+import './Header.scss';
 const Header = ({ title, icon }) => {
   return (
     <Fragment>
