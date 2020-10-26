@@ -6,7 +6,7 @@ const DrinkItem = (props) => {
   return (
     <Fragment>
       <div className="cards__item">
-        <Link className="cards__item__link" to={`/${props.id}`}>
+        <Link className="cards__item__link" to='/drink/:id'> {/* TODO: ROUTE TO SINGLE DRINK */}
           <figure
             className="cards__item__pic-wrap"
             data-category={props.drink.strCategory}

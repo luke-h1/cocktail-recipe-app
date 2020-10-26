@@ -67,8 +67,6 @@
   grid-gap: 20px;
 }
 
-
-
 @media (max-width: 1500px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
@@ -88,19 +86,19 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
-  .search__main { 
+  .search__main {
     max-width: 500px;
   }
 }
 
 @media (max-width: 760px) {
-  .grid-container { 
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
- }
+}
 @media (max-width: 500px) {
   .search-wrapper {
     display: flex;
@@ -118,13 +116,10 @@
     margin-left: 2.5rem;
   }
 
-  .grid-container { 
+  .grid-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
 }
-
-
