@@ -1,13 +1,9 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import './DrinkItem.scss';
+import React from 'react';
 
-const DrinkItem = (props) => {
+const SingleDrink = (props) => {
   return (
-    <Fragment>
+    <div>
       <div className="cards__item">
-        {/* <Link className="cards__item__link" to="/drink/:id"> */}{' '}
-        {/* TODO: ROUTE TO SINGLE DRINK */}
         <figure
           className="cards__item__pic-wrap"
           data-category={props.drink.strCategory}
@@ -21,9 +17,8 @@ const DrinkItem = (props) => {
         <div className="cards__item__info">
           <h5 className="cards__item__text">{props.drink.strDrink}</h5>
         </div>
-        {/* </Link> */}
       </div>
-    </Fragment>
+    </div>
   );
 };
-export default DrinkItem;
+export default SingleDrink;
