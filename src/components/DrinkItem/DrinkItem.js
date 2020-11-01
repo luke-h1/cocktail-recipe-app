@@ -20,6 +20,7 @@ const DrinkItem = (props) => {
           </figure>
           <div className="cards__item__info">
             <h5 className="cards__item__text">{props.drink.strDrink}</h5>
+            <p className="test">{props.drink.strInstructions}</p>
           </div>
         </Link>
       </div>
