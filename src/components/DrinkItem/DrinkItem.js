@@ -1,7 +1,7 @@
 import React from 'react';
 import './DrinkItem.scss';
 
-function DrinkItem(props) {
+const DrinkItem = (props) => {
   return (
     <>
       <div className="cards__item">
@@ -33,5 +33,5 @@ function DrinkItem(props) {
       </div>
     </>
   );
-}
+};
 export default DrinkItem;
