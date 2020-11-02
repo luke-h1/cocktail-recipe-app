@@ -20,6 +20,13 @@ const DrinkItem = (props) => {
           </figure>
           <div className="cards__item__info">
             <h5 className="cards__item__text">{props.drink.strDrink}</h5>
+            <p className="cards__item-recipe">Measurements & recipe:</p>
+            <p className="test">
+              {props.drink.strIngredient1 ? props.drink.strIngredient1 : null} -{' '}
+              {props.drink.strMeasure1 ? props.drink.strMeasure1 : null}
+            </p>
+
+
             <p className="test">{props.drink.strInstructions}</p>
           </div>
         </Link>
