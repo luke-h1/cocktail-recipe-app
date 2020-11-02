@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './DrinkItem.scss';
 
 function DrinkItem(props) {
   return (
-    <Fragment>
+    <>
       <div className="cards__item">
-        <Link className="cards__item__link" to="">
+        <div className="cards__item__link">
           {' '}
           <figure
             className="cards__item__pic-wrap"
@@ -30,9 +29,9 @@ function DrinkItem(props) {
             </ul>
             <p className="test">{props.drink.strInstructions}</p>
           </div>
-        </Link>
+        </div>
       </div>
-    </Fragment>
+    </>
   );
 }
 export default DrinkItem;

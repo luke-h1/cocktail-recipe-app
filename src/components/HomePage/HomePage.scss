@@ -1,7 +1,8 @@
 .container {
-  min-height: 25vh;
-  max-height: 25vh;
+  min-height: 35vh;
   display: flex;
+  padding-top: 2rem;
+  margin: 0 auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -16,6 +17,11 @@
   font-size: 22px;
 }
 
+.home__intro {
+  font-size: 25px;
+  width: 50%;
+  
+}
 
 
 @media (max-width: 500px) {

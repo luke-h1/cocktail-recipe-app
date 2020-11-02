@@ -1,17 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './HomePage.scss';
-const HomePage = ({ title, intro }) => {
+const HomePage = ({ intro }) => {
   return (
-    <Fragment>
-      <div className="container"></div>
-    </Fragment>
+    <>
+      <div className="container">
+        <h1 className='home__intro'>{intro}</h1>
+      </div>
+    </>
   );
 };
 HomePage.defaultProps = {
-  title: 'Search For Drinks',
   intro:
-    'Enter your Favorite drink or click the random button to get some ideas on what to drink tonight !',
+    'Enter your Favorite drink to get some ideas on what to drink tonight !',
 };
 
 HomePage.propTypes = {
