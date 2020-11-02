@@ -29,12 +29,7 @@ const Search = ({ title }) => {
         `Can't find that drink. Reloading page in 2 seconds (Error: ${e})`
       );
       console.log(`Error: ${e}`);
-      setTimeout(() => {
-        window.location.href =
-          window.location.pathname +
-          window.location.search +
-          window.location.hash;
-      }, 2500);
+      window.location.reload(false);
     }
   };
 
