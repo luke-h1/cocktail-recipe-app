@@ -14,10 +14,11 @@ const Search = ({ title }) => {
       <DrinkItem
         key={drink.strDrink}
         drink={drink}
-        ingredient={drink[`strIngredients${i}`]}
+        ingredient={drink[`strIngredient${i}`]}
         measurement={drink[`strMeasure${i}`]}
       ></DrinkItem>
     ));
+    setDrinks(results);
   };
 
   const onChange = (e) => setText(e.target.value);

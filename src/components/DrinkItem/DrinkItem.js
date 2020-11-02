@@ -1,10 +1,8 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './DrinkItem.scss';
 
 function DrinkItem(props) {
-
-
   return (
     <Fragment>
       <div className="cards__item">
@@ -24,11 +22,10 @@ function DrinkItem(props) {
             <h5 className="cards__item__text">{props.drink.strDrink}</h5>
             <p className="cards__item-recipe">Measurements & recipe:</p>
             <ul className="test">
-              <li>
-                {ingredient}
+              <li className='list-item'>
+                {props.ingredient} - {props.measurement}
               </li>
             </ul>
-
             <p className="test">{props.drink.strInstructions}</p>
           </div>
         </Link>
