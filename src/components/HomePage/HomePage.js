@@ -5,7 +5,7 @@ const HomePage = ({ intro }) => {
   return (
     <>
       <div className="container">
-        <h1 className='home__intro'>{intro}</h1>
+        <h1 className="home__intro">{intro}</h1>
       </div>
     </>
   );

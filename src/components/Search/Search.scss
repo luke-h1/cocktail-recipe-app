@@ -12,6 +12,12 @@
   font-size: 40px;
 }
 
+.alert {
+  text-align: center;
+  color: red;
+  margin: 0 auto;
+}
+
 .search__main {
   text-align: center;
   padding: 2rem;
@@ -19,6 +25,8 @@
   background-color: #f1f2f6;
   border-radius: 15px;
 }
+
+
 
 .search__query {
   border-radius: 10px;

@@ -4,6 +4,12 @@ import DrinkItem from '../DrinkItem/DrinkItem';
 const Search = ({ title }) => {
   const [text, setText] = useState('');
   const [drinks, setDrinks] = useState('');
+  const [alert, setAlert] = useState('');
+
+  const showError = (msg) => {
+    setAlert(msg);
+  };
+
   const searchDrinks = async (text) => {
     try {
       const API_URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text}`;
@@ -19,8 +25,16 @@ const Search = ({ title }) => {
       ));
       setDrinks(results);
     } catch (e) {
-      alert(e);
-      console.log(`Error: ${e}`); // todo: create alert state here  
+      showError(
+        `Can't find that drink. Reloading page in 2 seconds (Error: ${e})`
+      );
+      console.log(`Error: ${e}`);
+      setTimeout(() => {
+        window.location.href =
+          window.location.pathname +
+          window.location.search +
+          window.location.hash;
+      }, 2500);
     }
   };
 
@@ -52,8 +66,7 @@ const Search = ({ title }) => {
         </div>
       </div>
       <div className="grid-container">
-        {drinks}
-        {alert}
+        {alert ? <h2 className="alert">{alert}</h2> : drinks}
       </div>
     </>
   );
