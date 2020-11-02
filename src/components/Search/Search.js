@@ -4,15 +4,20 @@ import DrinkItem from '../DrinkItem/DrinkItem';
 const Search = ({ title }) => {
   const [text, setText] = useState('');
   const [drinks, setDrinks] = useState('');
+  const [ingredient, setIngredient] = useState([]);
 
   const searchDrinks = async (text) => {
     const API_URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text}`;
     const res = await fetch(API_URL);
     const data = await res.json();
-    const results = data.drinks.map((drink) => (
-      <DrinkItem key={drink.strDrink} drink={drink}></DrinkItem>
+    const results = data.drinks.map((drink, i) => (
+      <DrinkItem
+        key={drink.strDrink}
+        drink={drink}
+        ingredient={drink[`strIngredients${i}`]}
+        measurement={drink[`strMeasure${i}`]}
+      ></DrinkItem>
     ));
-    setDrinks(results);
   };
 
   const onChange = (e) => setText(e.target.value);
@@ -49,4 +54,5 @@ const Search = ({ title }) => {
     </Fragment>
   );
 };
+
 export default Search;
