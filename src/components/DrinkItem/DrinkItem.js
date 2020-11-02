@@ -21,9 +21,11 @@ function DrinkItem(props) {
           <div className="cards__item__info">
             <h5 className="cards__item__text">{props.drink.strDrink}</h5>
             <p className="cards__item-recipe">Measurements & recipe:</p>
-            <ul className="test">
-              <li className='list-item'>
+            <ul className="cards__item-list">
+              <li className="list-item">
                 {props.ingredient} - {props.measurement}
+                {/* <pre>{JSON.stringify(props.drinkLog, null, 2)}</pre>
+                <pre>{JSON.stringify(props.measurementLog, null, 2)}</pre> */}
               </li>
             </ul>
             <p className="test">{props.drink.strInstructions}</p>

@@ -12,6 +12,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+.cards__item-list { 
+  text-decoration: none;
+}
+
+.list-item { 
+  border-bottom: 2px solid #333;
+}
 
 .cards__item__link {
   display: flex;

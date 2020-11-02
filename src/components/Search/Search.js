@@ -16,6 +16,8 @@ const Search = ({ title }) => {
         drink={drink}
         ingredient={drink[`strIngredient${i}`]}
         measurement={drink[`strMeasure${i}`]}
+        // drinkLog={console.log(drink[`strIngredient${i}`], )}
+        // measurementLog={drink[`strMeasure${i}`]}
       ></DrinkItem>
     ));
     setDrinks(results);
